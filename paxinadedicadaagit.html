@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Calculadora con algunos operadores nunca vistos</title>
+        <title>Calculadora y publicidad</title>
         <link rel="stylesheet" type="text/css" href="estilosgit.css">
     </head>
     <body>
@@ -147,6 +147,56 @@
                 tangentes.style.border = "2px solid blue";
                 tangentes.style.borderRadius = "10px";
             });
+        </script>
+        <div id="publicidad">
+            <div id="anuncio1">
+                <img src="AnuncieAqui.png" width="100%" alt="Anuncie Aquí"/>
+            </div>
+            <div id="tiempo">
+
+            </div>
+            <div id="anuncio2">
+                <img src="AnuncieAqui.png" width="100%" alt="Anuncie Aquí"/>
+            </div>
+        </div>
+        <script>
+            /*while(true){*/
+                let hoy = new Date();
+                let dia = hoy.getDate();
+                let mes = hoy.getMonth()+1;
+                let año = hoy.getFullYear();
+                if(dia<10) {
+                    dia = "0" + dia;
+                }
+                if(mes<10) {
+                    mes = "0" + mes;
+                }
+                let fecha = `${dia}/${mes}/${año}`;
+                document.getElementById("tiempo").innerHTML = fecha;
+                setTimeout(function(){
+                    setInterval(function(){
+                        let hoy = new Date();
+                        let dia = hoy.getDate();
+                        let mes = hoy.getMonth()+1;
+                        let año = hoy.getFullYear();
+                        let hora = hoy.getHours();
+                        let minutos = hoy.getMinutes();
+                        let segundos = hoy.getSeconds();
+                        if(hora<10) {
+                            hora = "0" + hora;
+                        }
+                        if(minutos<10) {
+                            minutos = "0" + minutos;
+                        }
+                        if(segundos<10) {
+                            segundos = "0" + segundos;
+                        }
+                        let reloj = `${hora}:${minutos}:${segundos}`;
+                        document.getElementById("tiempo").innerHTML = reloj;
+                    }, 1000);
+                }, 5000);
+            /*}*/
+            
         </script>
     </body>
 </html>
