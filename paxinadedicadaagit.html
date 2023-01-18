@@ -1,8 +1,152 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Baleiro</title>
+        <meta charset="utf-8">
+        <title>Calculadora con algunos operadores nunca vistos</title>
+        <link rel="stylesheet" type="text/css" href="estilosgit.css">
     </head>
     <body>
+        <div id="calculadora">
+            <div class="valores">
+                <h3>X= <input id="valorX" type="text" placeholder="0"/></h3>
+            </div>
+            <div class="valores">
+                <h3>Y= <input id="valorY" type="text" placeholder="0"/></h3>
+            </div>
+            <input type="button" id="calcular" value="Calcular operaciones"/>
+            <hr>
+            <div id="suma"></div>
+            <div id="resta"></div>
+            <div id="multiplicacion"></div>
+            <div id="division"></div>
+            <div id="resto"></div>
+            <div id="potencia"></div>
+            <div id="raizcuadrada"></div>
+            <div id="valorXraizvalorY"></div>
+            <div id="valorYraizvalorX"></div>
+            <div id="hipotenusapitagoras"></div>
+            <div id="senos"></div>
+            <div id="cosenos"></div>
+            <div id="tangentes"></div>
+        </div>
+        <script>
+            let valorX = document.getElementById("valorX");
+            let valorY = document.getElementById("valorY");
+            let calcular = document.getElementById("calcular");
+            calcular.addEventListener("click", function(){
+                //Suma
+                let suma = document.getElementById("suma");
+                let sumando = parseInt(valorX.value) + parseInt(valorY.value);
+                suma.innerHTML = `SUMA: ${valorX.value} + ${valorY.value} = <b>${sumando}</b>`;
+                suma.style.padding = "5px";
+                suma.style.backgroundColor = "white";
+                suma.style.border = "2px solid blue";
+                suma.style.borderRadius = "10px";
+                //Resta
+                let resta = document.getElementById("resta");
+                let restando = parseInt(valorX.value) - parseInt(valorY.value);
+                resta.innerHTML = `RESTA: ${valorX.value} - ${valorY.value} = <b>${restando}</b>`;
+                resta.style.padding = "5px";
+                resta.style.backgroundColor = "white";
+                resta.style.border = "2px solid blue";
+                resta.style.borderRadius = "10px";
+                //Multiplicación
+                let multiplicacion = document.getElementById("multiplicacion");
+                let multiplicando = parseInt(valorX.value) * parseInt(valorY.value);
+                multiplicacion.innerHTML = `PRODUCTO: ${valorX.value} x ${valorY.value} = <b>${multiplicando}</b>`;
+                multiplicacion.style.padding = "5px";
+                multiplicacion.style.backgroundColor = "white";
+                multiplicacion.style.border = "2px solid blue";
+                multiplicacion.style.borderRadius = "10px";
+                //División
+                let division = document.getElementById("division");
+                let dividiendo = parseInt(valorX.value) / parseInt(valorY.value);
+                division.innerHTML = `DIVISIÓN: ${valorX.value} / ${valorY.value} = <b>${dividiendo}</b>`;
+                division.style.padding = "5px";
+                division.style.backgroundColor = "white";
+                division.style.border = "2px solid blue";
+                division.style.borderRadius = "10px";
+                //Resto
+                let resto = document.getElementById("resto");
+                let modulo = parseInt(valorX.value) % parseInt(valorY.value);
+                resto.innerHTML = `RESTO: ${valorX.value} % ${valorY.value} = <b>${modulo}</b>`;
+                resto.style.padding = "5px";
+                resto.style.backgroundColor = "white";
+                resto.style.border = "2px solid blue";
+                resto.style.borderRadius = "10px";
+                //Potencia
+                let potencia = document.getElementById("potencia");
+                let baseexponente = Math.pow(parseInt(valorX.value), parseInt(valorY.value));
+                potencia.innerHTML = `POTENCIA: ${valorX.value}<sup>${valorY.value}</sup> = <b>${baseexponente}</b>`;
+                potencia.style.padding = "5px";
+                potencia.style.backgroundColor = "white";
+                potencia.style.border = "2px solid blue";
+                potencia.style.borderRadius = "10px";
+                //Raíz Cuadrada
+                let raizcuadrada = document.getElementById("raizcuadrada");
+                let raizX = Math.sqrt(parseInt(valorX.value), 2);
+                let raizY = Math.sqrt(parseInt(valorY.value), 2);
+                raizcuadrada.innerHTML = `RAÍZ(X): &#8730;${valorX.value} = <b>${raizX}</b><br/>`+
+                `RAÍZ(Y): &#8730;${valorY.value} = <b>${raizY}</b>`;
+                raizcuadrada.style.padding = "5px";
+                raizcuadrada.style.backgroundColor = "white";
+                raizcuadrada.style.border = "2px solid blue";
+                raizcuadrada.style.borderRadius = "10px";
+                //(X)Raíz(Y)
+                let XraizY = document.getElementById("valorXraizvalorY");
+                let operacionXraizY = Math.pow(parseInt(valorY.value), 1/parseInt(valorX.value));
+                XraizY.innerHTML = `(X)RAÍZ(Y): <sup>${valorX.value}</sup>&#8730;${valorY.value} = <b>${operacionXraizY}</b>`;
+                XraizY.style.padding = "5px";
+                XraizY.style.backgroundColor = "white";
+                XraizY.style.border = "2px solid blue";
+                XraizY.style.borderRadius = "10px";
+                //(Y)Raíz(X)
+                let YraizX = document.getElementById("valorYraizvalorX");
+                let operacionYraizX = Math.pow(parseInt(valorX.value), 1/parseInt(valorY.value));
+                YraizX.innerHTML = `(Y)RAÍZ(X): <sup>${valorY.value}</sup>&#8730;${valorX.value} = <b>${operacionYraizX}</b>`;
+                YraizX.style.padding = "5px";
+                YraizX.style.backgroundColor = "white";
+                YraizX.style.border = "2px solid blue";
+                YraizX.style.borderRadius = "10px";
+                //Hipotenusa del Teorema de Pitágoras
+                let hipotenusapitagoras = document.getElementById("hipotenusapitagoras");
+                let pitagoras = Math.sqrt(Math.pow(parseInt(valorX.value), 2) + Math.pow(parseInt(valorY.value), 2));
+                hipotenusapitagoras.innerHTML = `HIPOTENUSA (PITÁGORAS):&#8730;(${valorX.value}<sup>2</sup> + ${valorY.value}<sup>2</sup>) = <b>${pitagoras}</b>`;
+                hipotenusapitagoras.style.padding = "5px";
+                hipotenusapitagoras.style.backgroundColor = "white";
+                hipotenusapitagoras.style.border = "2px solid blue";
+                hipotenusapitagoras.style.borderRadius = "10px";
+                //Seno de X e Y
+                let senos = document.getElementById("senos");
+                let senoX = Math.sin((parseInt(valorX.value)*Math.PI)/180);
+                let senoY = Math.sin((parseInt(valorY.value)*Math.PI)/180);
+                senos.innerHTML = `SENO(X): sin(${valorX.value}) = <b>${senoX}</b><br/>`+
+                `SENO(Y): sin(${valorY.value}) = <b>${senoY}</b>`;
+                senos.style.padding = "5px";
+                senos.style.backgroundColor = "white";
+                senos.style.border = "2px solid blue";
+                senos.style.borderRadius = "10px";
+                //Coseno de X e Y
+                let cosenos = document.getElementById("cosenos");
+                let cosenoX = Math.cos((parseInt(valorX.value)*Math.PI)/180);
+                let cosenoY = Math.cos((parseInt(valorY.value)*Math.PI)/180);
+                cosenos.innerHTML = `COSENO(X): cos(${valorX.value}) = <b>${cosenoX}</b><br/>`+
+                `COSENO(Y): cos(${valorY.value}) = <b>${cosenoY}</b>`;
+                cosenos.style.padding = "5px";
+                cosenos.style.backgroundColor = "white";
+                cosenos.style.border = "2px solid blue";
+                cosenos.style.borderRadius = "10px";
+                //Tangentes de X e Y
+                let tangentes = document.getElementById("tangentes");
+                let tangenteX = Math.tan((parseInt(valorX.value)*Math.PI)/180);
+                let tangenteY = Math.tan((parseInt(valorY.value)*Math.PI)/180);
+                tangentes.innerHTML = `TANGENTE(X): tan(${valorX.value}) = <b>${tangenteX}</b><br/>`+
+                `TANGENTE(Y): tan(${valorY.value}) = <b>${tangenteY}</b>`;
+                tangentes.style.padding = "5px";
+                tangentes.style.backgroundColor = "white";
+                tangentes.style.border = "2px solid blue";
+                tangentes.style.borderRadius = "10px";
+            });
+        </script>
     </body>
 </html>
